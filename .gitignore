@@ -18,3 +18,5 @@ Homestead.json
 .idea/
 _ide_helper.php
 .phpstorm.meta.php
+public/uploads
+/uploads/

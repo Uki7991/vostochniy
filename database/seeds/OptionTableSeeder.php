@@ -12,7 +12,7 @@ class OptionTableSeeder extends Seeder
     public function run()
     {
         \App\Option::create([
-            'name' => 'Godzilla',
+            'name' => 'Vostochniy Kvartal',
             'tel1' => '+996 (700) 700 - 700',
         ]);
     }

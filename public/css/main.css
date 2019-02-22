@@ -78,9 +78,16 @@ a.underline-link:hover {
     text-decoration: underline;
 }
 
+.title_of_product {
+    min-height: 50px;
+    max-height: 50px;
+}
 .description_of_product {
     min-height: 46px;
     max-height: 46px;
+}
+.description_of_product:first-letter {
+    text-transform: capitalize;
 }
 
 .image_of_product {

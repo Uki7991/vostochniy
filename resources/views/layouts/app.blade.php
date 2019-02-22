@@ -32,10 +32,10 @@
 <body>
 
     <header class="sticky-top shadow-sm">
-        <nav class="navbar navbar-expand-md navbar-light bg-white">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="/images/logo_transparent.png" class="logo" alt="">
+                    <img src="/images/logo.png" class="logo" alt="">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -45,13 +45,13 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mx-auto">
                         <li class="nav-item">
-                            <a href="" class="nav-link text-capitalize">главная</a>
+                            <a href="" class="nav-link text-capitalize text-white">главная</a>
                         </li>
                         @if(count($types) > 4)
                             <li class="nav-item dropdown">
-                                <a href="" class="nav-link text-capitalize dropdown-toggle" data-toggle="dropdown">меню <span class="caret"></span></a>
+                                <a href="" class="nav-link text-capitalize dropdown-toggle text-white" data-toggle="dropdown">меню <span class="caret"></span></a>
 
-                                <div class="dropdown-menu">
+                                <div class="dropdown-menu bg-light">
                                     @foreach($types as $type)
                                         @if(count($type->products) > 0)
                                             <a href="/#{{ $type->slug }}" class="dropdown-item text-capitalize">{{ $type->name }}</a>
@@ -69,7 +69,7 @@
                             @endforeach
                         @endif
                         <li class="nav-item">
-                            <a href="#contacts" class="nav-link text-capitalize">контакты</a>
+                            <a href="#contacts" class="nav-link text-capitalize text-white">контакты</a>
                         </li>
                     </ul>
 
@@ -122,18 +122,22 @@
                 <div class="col-12 col-md-auto text-center">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a href="#" class="nav-link text-light text-capitalize underline-link">главная</a>
+                            <a href="/" class="nav-link text-capitalize underline-link text-white">главная</a>
                         </li>
+                        <li class="nav-item">
+                            <a href="#contacts" class="nav-link text-capitalize underline-link text-white">контакты</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-12 col-md-auto text-center">
+                    <ul class="nav flex-column">
                         @foreach($types as $type)
                             @if(count($type->products) > 0)
-                            <li class="nav-item">
-                                <a href="#{{ $type->slug }}" class="nav-link text-capitalize text-light">{{ $type->name }}</a>
-                            </li>
+                                <li class="nav-item">
+                                    <a href="#{{ $type->slug }}" class="nav-link text-capitalize text-white">{{ $type->name }}</a>
+                                </li>
                             @endif
                         @endforeach
-                        <li class="nav-item">
-                            <a href="#contacts" class="nav-link text-light text-capitalize underline-link">контакты</a>
-                        </li>
                     </ul>
                 </div>
                 <div class="col-12 col-md-auto text-center">
@@ -141,10 +145,10 @@
 
                         <ul class="nav justify-content-center">
                             <li class="nav-item">
-                                <a href="tel:{{ $option->tel1 }}" class="nav-link text-light underline-link">{{ $option->tel1 }}</a>
+                                <a href="tel:{{ $option->tel1 }}" class="nav-link underline-link text-white">{{ $option->tel1 }}</a>
                             </li>
                             <li class="nav-item">
-                                <a href="tel:{{ $option->tel2 }}" class="nav-link text-light underline-link">{{ $option->tel2 }}</a>
+                                <a href="tel:{{ $option->tel2 }}" class="nav-link underline-link text-white">{{ $option->tel2 }}</a>
                             </li>
                         </ul>
 
@@ -153,10 +157,10 @@
 
                         <ul class="nav justify-content-center">
                             <li class="nav-item">
-                                <a href="tel:{{ $option->tel3 }}" class="nav-link text-light underline-link">{{ $option->tel3 }}</a>
+                                <a href="tel:{{ $option->tel3 }}" class="nav-link underline-link text-white">{{ $option->tel3 }}</a>
                             </li>
                             <li class="nav-item">
-                                <a href="tel:{{ $option->tel4 }}" class="nav-link text-light underline-link">{{ $option->tel4 }}</a>
+                                <a href="tel:{{ $option->tel4 }}" class="nav-link underline-link text-white">{{ $option->tel4 }}</a>
                             </li>
                         </ul>
 
@@ -165,7 +169,7 @@
 
                         <ul class="nav justify-content-center">
                             <li class="nav-item">
-                                <a href="mailto:{{ $option->email }}" class="nav-link text-light underline-link">{{ $option->email }}</a>
+                                <a href="mailto:{{ $option->email }}" class="nav-link underline-link text-white">{{ $option->email }}</a>
                             </li>
                         </ul>
 
@@ -174,10 +178,10 @@
 
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a href="{{ $option->instagram }}" target="_blank" class="nav-link text-light underline-link"><i class="fab fa-lg fa-instagram"></i> {{ $option->instagram }}</a>
+                                <a href="{{ $option->instagram }}" target="_blank" class="nav-link underline-link text-white"><i class="fab fa-lg fa-instagram"></i> {{ $option->instagram }}</a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ $option->whatsapp }}" target="_blank" class="nav-link text-light underline-link"><i class="fab fa-lg fa-whatsapp"></i> {{ $option->whatsapp }}</a>
+                                <a href="{{ $option->whatsapp }}" target="_blank" class="nav-link underline-link text-white"><i class="fab fa-lg fa-whatsapp"></i> {{ $option->whatsapp }}</a>
                             </li>
                         </ul>
 
