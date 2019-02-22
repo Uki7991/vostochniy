@@ -15,7 +15,9 @@ Route::get('/', 'MainController@welcome')->name('main.page');
 
 Auth::routes();
 
-//Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', function () {
+    return redirect()->route('options');
+})->name('home');
 
 Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function () {
     Route::get('/admin', 'AdminController@index')->name('admin');
