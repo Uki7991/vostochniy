@@ -19,7 +19,7 @@
                 </div>
                 <div class="form-group">
                     <label for="description-of-product">Описание</label>
-                    <textarea maxlength="80" class="form-control {{ $errors->has('description') ? ' is-invalid' : '' }}" name="description" id="description-of-product">{{ $product->description }}</textarea>
+                    <textarea class="form-control {{ $errors->has('description') ? ' is-invalid' : '' }}" name="description" id="description-of-product">{{ $product->description }}</textarea>
                     @if($errors->has('description'))
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $errors->first('description') }}</strong>
