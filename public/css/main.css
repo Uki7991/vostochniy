@@ -79,12 +79,12 @@ a.underline-link:hover {
 }
 
 .title_of_product {
-    min-height: 50px;
-    max-height: 50px;
+    min-height: 25px;
+    max-height: 25px;
 }
 .description_of_product {
-    min-height: 46px;
-    max-height: 46px;
+    min-height: 92px;
+    max-height: 92px;
 }
 .description_of_product:first-letter {
     text-transform: capitalize;
