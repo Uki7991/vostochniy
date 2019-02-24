@@ -174,18 +174,21 @@
                         </ul>
 
                     @endif
-                    @if($option->instagram || $option->whatsapp)
 
-                        <ul class="nav flex-column">
-                            <li class="nav-item">
-                                <a href="{{ $option->instagram }}" target="_blank" class="nav-link underline-link text-white"><i class="fab fa-lg fa-instagram"></i> {{ $option->instagram }}</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ $option->whatsapp }}" target="_blank" class="nav-link underline-link text-white"><i class="fab fa-lg fa-whatsapp"></i> {{ $option->whatsapp }}</a>
-                            </li>
-                        </ul>
 
-                    @endif
+                    <ul class="nav flex-column">
+                        @if($option->instagram)
+                            <li class="nav-item">
+                                <a href="https://www.instagram.com/{{ $option->instagram }}" target="_blank" class="nav-link underline-link text-white"><i class="fab fa-lg fa-instagram"></i> {{ $option->instagram }}</a>
+                            </li>
+                        @endif
+                        @if($option->whatsapp)
+                            <li class="nav-item">
+                                <a href="https://wa.me/{{ $option->whatsapp }}" target="_blank" class="nav-link underline-link text-white"><i class="fab fa-lg fa-whatsapp"></i> {{ $option->whatsapp }}</a>
+                            </li>
+                        @endif
+                    </ul>
+
                 </div>
             </div>
 
