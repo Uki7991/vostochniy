@@ -39,21 +39,23 @@ class ProductController extends Controller
      */
     public function store(ProductRequest $request)
     {
-        $request = $request->validated();
+        $validated = $request->validated();
 
-        $product = new Product($request);
+        $product = new Product($validated);
 
-        if ($request['image']) {
-            $file = $request['image'];
-            $fileName = uniqid('product_').'.jpg';
+        if ($request->hasFile('image')) {
+            if ($request['image']) {
+                $file = $request['image'];
+                $fileName = uniqid('product_').'.jpg';
 
-            \Image::make($file)
-                ->resize(500, null, function ($constraint) {
-                    $constraint->aspectRatio();
-                })
-                ->save(public_path('uploads/'.$fileName), 40);
+                \Image::make($file)
+                    ->resize(500, null, function ($constraint) {
+                        $constraint->aspectRatio();
+                    })
+                    ->save(public_path('uploads/'.$fileName), 40);
 
-            $product->image = $fileName;
+                $product->image = $fileName;
+            }
         }
 
         $product->save();

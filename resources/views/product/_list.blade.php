@@ -1,7 +1,9 @@
 <div class="col-12 col-sm-12 col-md-6 col-lg-3 my-1 my-md-2">
     <div class="card shadow-sm border-bottom  border-top-0 border-left-0 border-right-0 transition-500 card-product bg-dark text-white">
         <div class="card-body p-2 text-center">
-            <img src="{{ asset('uploads/'.$product->image) }}" class="img-fluid mb-1 mb-md-3 image_of_product" alt="">
+            @if($product->image)
+                <img src="{{ asset('uploads/'.$product->image) }}" class="img-fluid mb-1 mb-md-3 image_of_product" alt="">
+            @endif
             <p class="h5 title_of_product font-weight-bold text-capitalize {{ $product->description ? '' : 'mb-3' }}">{{ $product->name }}</p>
 
             @if($product->description)

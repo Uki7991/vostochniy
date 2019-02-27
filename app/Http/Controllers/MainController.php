@@ -9,8 +9,10 @@ class MainController extends Controller
 {
     public function welcome()
     {
+        $types = Type::all()->sortBy('order');
+
         return view('welcome', [
-            'types' => Type::all()->sortBy('order'),
+            'types' => $types->chunk($types->count() / 2),
         ]);
     }
 }
