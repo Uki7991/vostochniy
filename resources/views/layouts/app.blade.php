@@ -45,34 +45,36 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mx-auto">
                         <li class="nav-item">
-                            <a href="" class="nav-link text-capitalize text-white">главная</a>
+                            <a href="/" class="nav-link text-capitalize text-white">главная</a>
                         </li>
-                        @if(count($types[0]) > 4)
-                            <li class="nav-item dropdown">
-                                <a href="" class="nav-link text-capitalize dropdown-toggle text-white" data-toggle="dropdown">меню <span class="caret"></span></a>
+                        @isset($types)
+                            @if(count($types[0]) > 4)
+                                <li class="nav-item dropdown">
+                                    <a href="" class="nav-link text-capitalize dropdown-toggle text-white" data-toggle="dropdown">меню <span class="caret"></span></a>
 
-                                <div class="dropdown-menu bg-light">
-                                    @foreach($types[0] as $type)
-                                        @if(count($type->products) > 0)
-                                            <a href="/#{{ $type->slug }}" class="dropdown-item text-capitalize">{{ $type->name }}</a>
-                                        @endif
-                                    @endforeach
-                                    @foreach($types[1] as $type)
-                                        @if(count($type->products) > 0)
-                                            <a href="/#{{ $type->slug }}" class="dropdown-item text-capitalize">{{ $type->name }}</a>
-                                        @endif
-                                    @endforeach
-                                </div>
-                            </li>
-                        @else
-                            @foreach($types[0] as $type)
-                                @if(count($type->products) > 0)
-                                    <li class="nav-item">
-                                        <a href="/#{{ $type->slug }}" class="nav-link text-capitalize">{{ $type->name }}</a>
-                                    </li>
-                                @endif
-                            @endforeach
-                        @endif
+                                    <div class="dropdown-menu bg-light">
+                                        @foreach($types[0] as $type)
+                                            @if(count($type->products) > 0)
+                                                <a href="/#{{ $type->slug }}" class="dropdown-item text-capitalize">{{ $type->name }}</a>
+                                            @endif
+                                        @endforeach
+                                        @foreach($types[1] as $type)
+                                            @if(count($type->products) > 0)
+                                                <a href="/#{{ $type->slug }}" class="dropdown-item text-capitalize">{{ $type->name }}</a>
+                                            @endif
+                                        @endforeach
+                                    </div>
+                                </li>
+                            @else
+                                @foreach($types[0] as $type)
+                                    @if(count($type->products) > 0)
+                                        <li class="nav-item">
+                                            <a href="/#{{ $type->slug }}" class="nav-link text-capitalize">{{ $type->name }}</a>
+                                        </li>
+                                    @endif
+                                @endforeach
+                            @endif
+                        @endisset
                         <li class="nav-item">
                             <a href="#contacts" class="nav-link text-capitalize text-white">контакты</a>
                         </li>
@@ -134,28 +136,30 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col-12 col-md-auto text-center">
-                    <ul class="nav flex-column">
-                        @foreach($types[0] as $type)
-                            @if(count($type->products) > 0)
-                                <li class="nav-item">
-                                    <a href="#{{ $type->slug }}" class="nav-link text-capitalize text-white">{{ $type->name }}</a>
-                                </li>
-                            @endif
-                        @endforeach
-                    </ul>
-                </div>
-                <div class="col-12 col-md-auto text-center">
-                    <ul class="nav flex-column">
-                        @foreach($types[1] as $type)
-                            @if(count($type->products) > 0)
-                                <li class="nav-item">
-                                    <a href="#{{ $type->slug }}" class="nav-link text-capitalize text-white">{{ $type->name }}</a>
-                                </li>
-                            @endif
-                        @endforeach
-                    </ul>
-                </div>
+                @isset($types)
+                    <div class="col-12 col-md-auto text-center">
+                        <ul class="nav flex-column">
+                            @foreach($types[0] as $type)
+                                @if(count($type->products) > 0)
+                                    <li class="nav-item">
+                                        <a href="#{{ $type->slug }}" class="nav-link text-capitalize text-white">{{ $type->name }}</a>
+                                    </li>
+                                @endif
+                            @endforeach
+                        </ul>
+                    </div>
+                    <div class="col-12 col-md-auto text-center">
+                        <ul class="nav flex-column">
+                            @foreach($types[1] as $type)
+                                @if(count($type->products) > 0)
+                                    <li class="nav-item">
+                                        <a href="#{{ $type->slug }}" class="nav-link text-capitalize text-white">{{ $type->name }}</a>
+                                    </li>
+                                @endif
+                            @endforeach
+                        </ul>
+                    </div>
+                @endisset
                 <div class="col-12 col-md-auto text-center">
                     @if($option->tel1 || $option->tel2)
 

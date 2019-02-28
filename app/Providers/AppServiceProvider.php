@@ -20,9 +20,6 @@ class AppServiceProvider extends ServiceProvider
         if (\Schema::hasTable('options')) {
             \View::share('option', Option::find(1));
         }
-        if (\Schema::hasTable('options')) {
-            \View::share('types', Type::all());
-        }
     }
 
     /**
