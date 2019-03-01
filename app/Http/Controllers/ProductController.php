@@ -41,7 +41,7 @@ class ProductController extends Controller
     {
         $validated = $request->validated();
 
-        $product = new Product($validated);
+        $product = new Product($request->all());
 
         if ($request->hasFile('image')) {
             if ($request['image']) {
@@ -99,7 +99,7 @@ class ProductController extends Controller
     {
         $validated = $request->validated();
 
-        $product->fill($validated);
+        $product->fill($request->all());
 
         if ($request->hasFile('image')) {
             if ($product->getOriginal('image') && is_file(public_path('uploads/'.$product->getOriginal('image')))) {
